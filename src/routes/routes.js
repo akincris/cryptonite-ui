@@ -2,11 +2,11 @@ import { Navigate, useRoutes } from "react-router-dom";
 import Base from "../layouts/Base/Base";
 import ErrorPage from "../pages/ErrorPage";
 
-export function AppRoutes() {
+export function AppRoutes(props) {
   const routes = useRoutes([
     {
       path: "/",
-      element: <Base />,
+      element: <Base toggleTheme={props.changeTheme}/>,
       children: [
         {
           path: "overview",

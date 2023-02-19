@@ -1,16 +1,13 @@
-import styled from "@emotion/styled";
-import { useTheme } from "@mui/system";
+import { Box } from "@mui/material";
 import { Outlet } from "react-router";
-import styles from "../../assets/layout.js";
+import Navbar from "../../components/global/Navbar.js";
 
-const Base = () => {
-  const theme = useTheme();
-  const Container = styled.div((props) => styles(theme).wrapper);
+const Base = (props) => {
   return (
-    <Container>
-      <p>base layout</p>
+    <Box>
+      <Navbar toggleTheme={props.toggleTheme} />
       <Outlet />
-    </Container>
+    </Box>
   );
 };
 export default Base;
