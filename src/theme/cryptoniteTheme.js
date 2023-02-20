@@ -1,47 +1,45 @@
-import { green, blue, yellow, purple, orange, red } from "@mui/material/colors";
-
 const getDesignTokens = (mode) => ({
   palette: {
     mode,
     ...(mode === "light"
       ? {
           primary: {
-            main: purple[200],
+            main: "#7dc172",
           },
           secondary: {
-            main: orange[200],
+            main: "#f1faea",
           },
           error: {
-            main: red[200],
+            main: "#d79995",
           },
           warning: {
-            main: yellow[200],
+            main: "#dee36f",
           },
           info: {
-            main: blue[200],
+            main: "#daebcd",
           },
           success: {
-            main: green[200],
+            main: "##67ba29",
           },
         }
       : {
           primary: {
-            main: purple[700],
+            main: "#3a9228",
           },
           secondary: {
-            main: orange[700],
+            main: "#46a433",
           },
           error: {
-            main: red[700],
+            main: "#8a3d3b",
           },
           warning: {
-            main: yellow[700],
+            main: "#dae44b",
           },
           info: {
-            main: blue[700],
+            main: "#85ec48",
           },
           success: {
-            main: green[700],
+            main: "#008900",
           },
         }),
   },

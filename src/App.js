@@ -1,20 +1,29 @@
 import { createTheme, ThemeProvider } from "@mui/material";
 import React from "react";
 import { useMemo, useState } from "react";
+import { Provider } from "react-redux";
 import "./App.css";
+import { getLSValue, setLSValue } from "./app/localStorage";
+import { store } from "./app/store";
 import { AppRoutes } from "./routes/routes";
 import getDesignTokens from "./theme/cryptoniteTheme";
 
-
 function App() {
-  const [mode, setMode] = useState("light");
- 
+  const [mode, setMode] = useState(getLSValue("theme") || "light");
+
+  const changeTheme = (theme) => {
+    setLSValue("theme", theme);
+    setMode(theme);
+  };
+
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
   return (
     <>
       <ThemeProvider theme={theme}>
-        <AppRoutes changeTheme={setMode}/>
+        <Provider store={store}>
+          <AppRoutes changeTheme={changeTheme} />
+        </Provider>
       </ThemeProvider>
     </>
   );

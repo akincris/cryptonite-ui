@@ -4,63 +4,53 @@ import {
   ButtonGroup,
   IconButton,
   Toolbar,
+  Typography,
   useTheme,
 } from "@mui/material";
-import { Box } from "@mui/system";
-import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
+import LanguageButton from "./selectLanguage";
 
-const Navbar = (props) => {
-  const [auth, setAuth] = useState(true);
-  const [anchorEl, setAnchorEl] = useState(null);
-
+const Navbar = ({ toggleSidebar, sidebarMode, toggleTheme }) => {
   const theme = useTheme();
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
-
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="info"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton
+          size="large"
+          edge="start"
+          color="secondary"
+          aria-label="menu"
+          sx={{ mr: 2 }}
+          onClick={() => toggleSidebar(!sidebarMode)}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ flexGrow: 1, color: "white", borderColor: "white", fontWeight: 600 }}
+        >
+          Cryptonite
+        </Typography>
 
-          <ButtonGroup>
-            <IconButton
-              onClick={() =>
-                props.toggleTheme(
-                  theme.palette.mode === "light" ? "dark" : "light"
-                )
-              }
-            >
-              {theme.palette.mode === "dark" ? (
-                <DarkModeOutlined color="info" />
-              ) : (
-                <LightModeOutlined color="info" />
-              )}
-            </IconButton>
-            <Button color="inherit">Login</Button>
-          </ButtonGroup>
-        </Toolbar>
-      </AppBar>
-    </Box>
+        <ButtonGroup>
+          <IconButton
+            onClick={() =>
+              toggleTheme(theme.palette.mode === "light" ? "dark" : "light")
+            }
+          >
+            {theme.palette.mode === "dark" ? (
+              <DarkModeOutlined color="secondary" />
+            ) : (
+              <LightModeOutlined color="secondary" />
+            )}
+          </IconButton>
+          <LanguageButton />
+        </ButtonGroup>
+      </Toolbar>
+    </AppBar>
   );
 };
 export default Navbar;

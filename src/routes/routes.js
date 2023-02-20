@@ -10,7 +10,7 @@ export function AppRoutes(props) {
       children: [
         {
           path: "overview",
-          element: <> base overview Page</>,
+          element: <div> base overview Page</div>,
         },
         {
           path: "",
