@@ -9,8 +9,10 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MailIcon from "@mui/icons-material/Mail";
 import Toolbar from "@mui/material/Toolbar";
+import { useTheme } from "@mui/material";
 
 const Sidebar = (props) => {
+  const theme = useTheme();
   const drawer = (
     <div>
       <Toolbar />
@@ -44,21 +46,24 @@ const Sidebar = (props) => {
   );
 
   return (
-      <Drawer
-        container={window.document.body}
-        variant="temporary"
-        open={props.open}
-        onClose={props.handleClose}
-        ModalProps={{
-          keepMounted: true,
-        }}
-        sx={{
-          // display: { xs: "block", sm: "none" },
-          "& .MuiDrawer-paper": { boxSizing: "border-box", width: 300 },
-        }}
-      >
-        {drawer}
-      </Drawer>
+    <Drawer
+      container={window.document.body}
+      variant="temporary"
+      open={props.open}
+      onClose={props.handleClose}
+      ModalProps={{
+        keepMounted: true,
+      }}
+      sx={{
+        "& .MuiDrawer-paper": {
+          boxSizing: "border-box",
+          width: 300,
+          backgroundColor: theme.palette.primary.lighter,
+        },
+      }}
+    >
+      {drawer}
+    </Drawer>
   );
 };
 export default Sidebar;

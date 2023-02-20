@@ -8,14 +8,18 @@ import {
   useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
+import {
+  DarkModeOutlined,
+  LightModeOutlined,
+  Person,
+  Settings,
+} from "@mui/icons-material";
 import LanguageButton from "./selectLanguage";
 
 const Navbar = ({ toggleSidebar, sidebarMode, toggleTheme }) => {
   const theme = useTheme();
-
   return (
-    <AppBar position="static">
+    <AppBar enableColorOnDark={true} position="static">
       <Toolbar>
         <IconButton
           size="large"
@@ -30,7 +34,10 @@ const Navbar = ({ toggleSidebar, sidebarMode, toggleTheme }) => {
         <Typography
           variant="h6"
           component="div"
-          sx={{ flexGrow: 1, color: "white", borderColor: "white", fontWeight: 600 }}
+          sx={{
+            flexGrow: 1,
+            fontWeight: 600,
+          }}
         >
           Cryptonite
         </Typography>
@@ -46,6 +53,12 @@ const Navbar = ({ toggleSidebar, sidebarMode, toggleTheme }) => {
             ) : (
               <LightModeOutlined color="secondary" />
             )}
+          </IconButton>
+          <IconButton>
+            <Person color="secondary" />
+          </IconButton>
+          <IconButton>
+            <Settings color="secondary" />
           </IconButton>
           <LanguageButton />
         </ButtonGroup>

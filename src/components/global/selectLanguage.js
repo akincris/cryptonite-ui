@@ -7,23 +7,28 @@ import { languages } from "../../translations/i18n";
 
 const LanguageButton = () => {
   const dispatch = useAppDispatch();
-const [language, setLanguage] = useState(i18next.language);
+  const [language, setLanguage] = useState(i18next.language);
   const handleChange = (lng) => {
     dispatch(changeLng(lng));
-    setLanguage(lng)
+    setLanguage(lng);
   };
   return (
-    <Select sx={{
+    <Select
+      sx={{
         margin: "2px",
-        maxHeight: "40px"
-    }}
+        maxHeight: "40px",
+      }}
       labelId="demo-simple-select-label"
       id="demo-simple-select"
       value={language}
       onChange={(e) => handleChange(e.target.value)}
     >
       {languages.map((language, index) => {
-        return <MenuItem key={index} value={language}>{language}</MenuItem>;
+        return (
+          <MenuItem key={index} value={language}>
+            {language}
+          </MenuItem>
+        );
       })}
     </Select>
   );

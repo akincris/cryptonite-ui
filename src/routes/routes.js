@@ -1,5 +1,6 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import Base from "../layouts/Base/Base";
+import DashboardPage from "../pages/DashboardPage";
 import ErrorPage from "../pages/ErrorPage";
 
 export function AppRoutes(props) {
@@ -10,7 +11,7 @@ export function AppRoutes(props) {
       children: [
         {
           path: "overview",
-          element: <div> base overview Page</div>,
+          element: <DashboardPage />,
         },
         {
           path: "",
