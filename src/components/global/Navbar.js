@@ -39,7 +39,7 @@ const Navbar = ({ toggleSidebar, sidebarMode, toggleTheme }) => {
             fontWeight: 600,
           }}
         >
-          Cryptonite
+          Crypto-Nite
         </Typography>
 
         <ButtonGroup>

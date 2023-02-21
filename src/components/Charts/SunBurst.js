@@ -37,7 +37,7 @@ const AnimatedSunburst = () => {
 
   return (
     <div className="animated-sunburst-example-wrapper">
-      <Button onClick={() => setData(updateData())} buttonContent={"UPDATE"}>
+      <Button color="secondary" onClick={() => setData(updateData())} buttonContent={"UPDATE"}>
         Update Data
       </Button>
       <Sunburst
