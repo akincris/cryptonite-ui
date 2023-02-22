@@ -1,6 +1,5 @@
 import {
   AppBar,
-  Button,
   ButtonGroup,
   IconButton,
   Toolbar,
@@ -15,11 +14,13 @@ import {
   Settings,
 } from "@mui/icons-material";
 import LanguageButton from "./selectLanguage";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ toggleSidebar, sidebarMode, toggleTheme }) => {
   const theme = useTheme();
+  const navigate = useNavigate();
   return (
-    <AppBar enableColorOnDark={true} position="static">
+    <AppBar enableColorOnDark={true} position="sticky">
       <Toolbar>
         <IconButton
           size="large"
@@ -54,7 +55,7 @@ const Navbar = ({ toggleSidebar, sidebarMode, toggleTheme }) => {
               <LightModeOutlined color="secondary" />
             )}
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => navigate("/account")}>
             <Person color="secondary" />
           </IconButton>
           <IconButton>
