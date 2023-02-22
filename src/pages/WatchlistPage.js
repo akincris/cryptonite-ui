@@ -1,4 +1,5 @@
 import { Grid, Paper, styled, Typography } from "@mui/material";
+import { useAppTranslation } from "../app/hooks";
 import BasicCarousel from "../components/Carousel";
 import CustomizedTable from "../components/CustomTable";
 
@@ -10,17 +11,29 @@ const WatchListPage = () => {
     textAlign: "center",
     color: theme.palette.text.secondary,
   }));
-  var items = [
+  const { t } = useAppTranslation();
+
+  var items1 = [
     {
-      name: "Random Name #1",
-      description: "Probably the most random thing you have ever seen!",
+      name: "Want some advices on trading?",
+      description:
+        "Click here to learn some tips from best traders on our platform",
     },
     {
-      name: "Random Name #2",
-      description: "Hello World!",
+      name: "Want to start on Crypto-Nite?",
+      description: "Sign up to get the best experience and the best price!",
     },
   ];
-
+  var items2 = [
+    {
+      name: "Bitcoin leads the board as usual! #1",
+      description: "Click here to learn the latest news on Bitcoin",
+    },
+    {
+      name: "Advices for you",
+      description: "Check out where to trade your coins!",
+    },
+  ];
   const columns = [
     { name: "Name", key: "name" },
     { name: "Price", key: "price" },
@@ -99,14 +112,14 @@ const WatchListPage = () => {
         <Grid item xs={12}>
           <Item>
             <Typography fontWeight={600} variant="h4" gutterBottom>
-              Watch List
+              {t("Watch List")}
             </Typography>
             <Grid container>
               <Grid xs={6} item>
-                <BasicCarousel num={0} items={items} />
+                <BasicCarousel num={0} items={items1} />
               </Grid>
               <Grid xs={6} item>
-                <BasicCarousel num={1} items={items} />
+                <BasicCarousel num={1} items={items2} />
               </Grid>
             </Grid>
           </Item>

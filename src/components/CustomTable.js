@@ -18,6 +18,7 @@ import LastPageIcon from "@mui/icons-material/LastPage";
 import { styled } from "@mui/material/styles";
 import { tableCellClasses } from "@mui/material/TableCell";
 import { TableHead } from "@mui/material";
+import { useAppTranslation } from "../app/hooks";
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -92,6 +93,7 @@ export default function CustomizedTable(props) {
   const { columns, data } = props;
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const {t} = useAppTranslation();
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
@@ -125,13 +127,13 @@ export default function CustomizedTable(props) {
   }));
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{ marginY: "20px" }}>
       <Table sx={{ minWidth: 500 }}>
         <TableHead>
           <TableRow>
             {columns.map((column, index) => {
               return (
-                <StyledTableCell align="right">{column.name}</StyledTableCell>
+                <StyledTableCell>{t(column.name)}</StyledTableCell>
               );
             })}
           </TableRow>
@@ -144,7 +146,7 @@ export default function CustomizedTable(props) {
             <StyledTableRow key={index}>
               {columns.map((column, index) => {
                 return (
-                  <StyledTableCell key={index} align="right">
+                  <StyledTableCell key={index}>
                     {row[column.key]}
                   </StyledTableCell>
                 );
@@ -167,10 +169,8 @@ export default function CustomizedTable(props) {
               rowsPerPage={rowsPerPage}
               page={page}
               SelectProps={{
-                inputProps: {
-                  "aria-label": "rows per page",
-                },
-                native: true,
+                inputProps: false
+                
               }}
               onPageChange={handleChangePage}
               onRowsPerPageChange={handleChangeRowsPerPage}

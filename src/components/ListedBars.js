@@ -6,9 +6,11 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import StarIcon from "@mui/icons-material/Star";
 import { useTheme } from "@mui/material";
+import { useAppTranslation } from "../app/hooks";
 
 export default function ListedBars(props) {
   const theme = useTheme();
+  const { t } = useAppTranslation();
   return (
     <List
       sx={{
@@ -27,7 +29,7 @@ export default function ListedBars(props) {
               <ListItemIcon>
                 <StarIcon sx={{ color: theme.palette.secondary.main }} />
               </ListItemIcon>
-              <ListItemText secondary="Coin price from GraphQL" />
+              <ListItemText secondary={t("Coin price from GraphQL")} />
             </ListItemButton>
           </ListItem>
         );

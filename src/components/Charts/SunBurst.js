@@ -1,6 +1,7 @@
 import { Button, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import { Sunburst } from "react-vis";
+import { useAppTranslation } from "../../app/hooks";
 
 function randomLeaf() {
   return {
@@ -28,6 +29,7 @@ function updateData() {
 const AnimatedSunburst = () => {
   const [data, setData] = useState(updateData());
   const theme = useTheme();
+  const { t } = useAppTranslation();
   const colors = [
     theme.palette.primary.main,
     theme.palette.primary.lighter,
@@ -37,8 +39,12 @@ const AnimatedSunburst = () => {
 
   return (
     <div className="animated-sunburst-example-wrapper">
-      <Button color="secondary" onClick={() => setData(updateData())} buttonContent={"UPDATE"}>
-        Update Data
+      <Button
+        color="secondary"
+        onClick={() => setData(updateData())}
+        buttonContent={"UPDATE"}
+      >
+        {t("Update Data")}
       </Button>
       <Sunburst
         animation={{ damping: 90, stiffness: 200 }}

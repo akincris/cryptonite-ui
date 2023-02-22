@@ -4,24 +4,27 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { useAppTranslation } from "../app/hooks";
 
 export default function BasicCard(props) {
+  const { t } = useAppTranslation();
+
   return (
     <Card sx={{ margin: "4px", backgroundColor: props.color }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Check it out
+          {t("Learn more")}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Crypto-Nite is rated as one of the best apps in the industry!
+          {t("Crypto-Nite is rated as one of the best apps in the industry!")}
         </Typography>
         <Typography variant="body2">
-          {'"The app really knows what you need"'}
+          '{t("The app really knows what you need")}'
         </Typography>
       </CardContent>
       <CardActions>
         <Button color="secondary" size="small">
-          Learn More
+          {t("Learn more")}
         </Button>
       </CardActions>
     </Card>

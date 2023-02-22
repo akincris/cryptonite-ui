@@ -15,10 +15,12 @@ import { useNavigate } from "react-router-dom";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import PublicIcon from "@mui/icons-material/Public";
+import { useAppTranslation } from "../../app/hooks";
 
 const Sidebar = (props) => {
   const theme = useTheme();
   const navigate = useNavigate();
+  const { t } = useAppTranslation();
 
   const firstPartItems = [
     { text: "Dashboard", path: "/", icon: <DashboardIcon /> },
@@ -40,7 +42,7 @@ const Sidebar = (props) => {
           <ListItem key={index} disablePadding>
             <ListItemButton onClick={() => navigate(item.path)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
+              <ListItemText primary={t(item.text)} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -51,7 +53,7 @@ const Sidebar = (props) => {
           <ListItem key={index} disablePadding>
             <ListItemButton onClick={() => navigate(item.path)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
+              <ListItemText primary={t(item.text)} />
             </ListItemButton>
           </ListItem>
         ))}
