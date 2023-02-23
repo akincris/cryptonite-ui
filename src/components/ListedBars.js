@@ -22,9 +22,9 @@ export default function ListedBars(props) {
       }}
       aria-label="contacts"
     >
-      {[1, 2, 3, 4, 5, 4, 3, 4, 3, 4, 4].map(() => {
+      {[1, 2, 3, 4, 5, 4, 3, 4, 3, 4, 4].map((item, index) => {
         return (
-          <ListItem>
+          <ListItem key={index}>
             <ListItemButton sx={{ backgroundColor: props.color }}>
               <ListItemIcon>
                 <StarIcon sx={{ color: theme.palette.secondary.main }} />

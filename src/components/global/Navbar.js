@@ -42,7 +42,6 @@ const Navbar = ({ toggleSidebar, sidebarMode, toggleTheme }) => {
         >
           Crypto-Nite
         </Typography>
-
         <ButtonGroup>
           <IconButton
             onClick={() =>

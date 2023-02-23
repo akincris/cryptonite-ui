@@ -1,5 +1,5 @@
 import { Button, useTheme } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Sunburst } from "react-vis";
 import { useAppTranslation } from "../../app/hooks";
 
@@ -36,23 +36,20 @@ const AnimatedSunburst = () => {
     theme.palette.secondary.main,
     theme.palette.secondary.lighter,
   ];
-
+  useEffect(() => {
+    setTimeout(() => {
+      setData(updateData());
+    }, 4500);
+  }, [data]);
   return (
     <div className="animated-sunburst-example-wrapper">
-      <Button
-        color="secondary"
-        onClick={() => setData(updateData())}
-        buttonContent={"UPDATE"}
-      >
-        {t("Update Data")}
-      </Button>
       <Sunburst
-        animation={{ damping: 90, stiffness: 200 }}
+        animation={{ damping: 100, stiffness: 100 }}
         data={data}
         colorType={"category"}
         colorRange={colors}
         style={{ stroke: "#fff" }}
-        height={300}
+        height={320}
         width={350}
       />
     </div>

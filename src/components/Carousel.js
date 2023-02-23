@@ -8,7 +8,13 @@ const BasicCarousel = (props) => {
   const { items, num } = props;
 
   return (
-    <Carousel autoPlay={true} indicators={false} interval={3000} duration={800}>
+    <Carousel
+      sx={{ margin: "5px" }}
+      autoPlay={true}
+      indicators={false}
+      interval={3000}
+      duration={800}
+    >
       {items.map((item, i) => (
         <Item
           key={i}
@@ -33,8 +39,8 @@ function Item(props) {
       sx={{
         maxWidth: "600px",
         height: "300px",
-        margin: "3px",
         backgroundColor: props.color,
+        border: "3px solid white",
       }}
     >
       <h2>{t(props.item.name)}</h2>

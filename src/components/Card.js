@@ -12,8 +12,8 @@ export default function BasicCard(props) {
   return (
     <Card sx={{ margin: "4px", backgroundColor: props.color }}>
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {t("Learn more")}
+        <Typography sx={{ fontSize: 16, fontWeight: "600" }} color="text.secondary" gutterBottom>
+          {t("Reviews from our best customers")}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           {t("Crypto-Nite is rated as one of the best apps in the industry!")}
