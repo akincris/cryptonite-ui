@@ -21,7 +21,7 @@ i18n.use(initReactI18next).init({
 
 export const languages = Object.keys(resources);
 
-export const changeLanguage = (lng: string) => {
+export const changeLanguage = (lng) => {
  i18n.changeLanguage(lng);
  setLSValue("language", lng);
 }
