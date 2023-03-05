@@ -29,15 +29,17 @@ import {
   VerticalGridLines,
   LineSeries,
 } from "react-vis";
-import { useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 export default function LineGraphic(props) {
   const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <XYPlot
       style={{ fill: "none", stroke: theme.palette.secondary.main }}
-      width={300}
-      height={300}
+      width={matches ? 200 : 300}
+      height={matches ? 200 : 300}
     >
       <HorizontalGridLines style={{ stroke: theme.palette.secondary.main }} />
       <VerticalGridLines style={{ stroke: theme.palette.secondary.main }} />

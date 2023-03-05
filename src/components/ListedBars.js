@@ -15,10 +15,9 @@ export default function ListedBars(props) {
     <List
       sx={{
         width: "100%",
-        maxWidth: 560,
         position: "relative",
         overflow: "auto",
-        maxHeight: 320,
+        maxHeight: 300,
       }}
       aria-label="contacts"
     >

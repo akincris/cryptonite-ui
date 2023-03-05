@@ -1,4 +1,4 @@
-import { Button, useTheme } from "@mui/material";
+import { Button, useMediaQuery, useTheme } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Sunburst } from "react-vis";
 import { useAppTranslation } from "../../app/hooks";
@@ -41,6 +41,9 @@ const AnimatedSunburst = () => {
       setData(updateData());
     }, 4500);
   }, [data]);
+
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <div className="animated-sunburst-example-wrapper">
       <Sunburst
@@ -48,9 +51,12 @@ const AnimatedSunburst = () => {
         data={data}
         colorType={"category"}
         colorRange={colors}
-        style={{ stroke: "#fff" }}
-        height={320}
-        width={350}
+        style={{ stroke: "#fff", }}
+        sx={{[theme.breakpoints.down('md')]: {
+          display: 'none',
+        },}}
+        height={matches ? 200: 310}
+        width={matches ? 220: 330}
       />
     </div>
   );

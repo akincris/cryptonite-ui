@@ -1,12 +1,4 @@
-import {
-  Card,
-  CardContent,
-  Grid,
-  Paper,
-  styled,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Grid, Paper, styled, Typography, useTheme } from "@mui/material";
 import { Box } from "@mui/system";
 import { useAppTranslation } from "../../app/hooks";
 import BasicCard from "../Card";
@@ -39,20 +31,19 @@ const ChartHolder = () => {
                 <Typography>Time: 4.03 AM</Typography>
               </Grid>
               <Grid item xs={12}>
-                {/* <Box sx={{backgroundColor: "blue"}}>here oytu go</Box> */}
               </Grid>
             </Grid>
           </Box>
         </Item>
       </Grid>
-      <Grid item md={4} xs={8}>
+      <Grid item md={4} xs={12}>
         <Item>
           <ListedBars
             color={theme.palette.mode === "light" ? "#c4e1c8" : "#121b21"}
           />
         </Item>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item md={4} xs={12}>
         <Item>
           <BasicCard color={theme.palette.primary.main} />
         </Item>

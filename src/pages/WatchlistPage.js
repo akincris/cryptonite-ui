@@ -1,9 +1,14 @@
-import { Grid, Paper, styled, Typography } from "@mui/material";
+import { useTheme } from "@emotion/react";
+import { Grid, Paper, styled, Typography, useMediaQuery } from "@mui/material";
 import { useAppTranslation } from "../app/hooks";
 import BasicCarousel from "../components/Carousel";
 import CustomizedTable from "../components/CustomTable";
 
 const WatchListPage = () => {
+  
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
+
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.primary.lighter,
     ...theme.typography.body2,
@@ -108,17 +113,17 @@ const WatchListPage = () => {
   ];
   return (
     <>
-      <Grid container maxWidth={2000} spacing={2} sx={{ padding: "14px" }}>
+      <Grid justifyContent={"center"}  container spacing={2} sx={{ padding: "14px" }}>
         <Grid item xs={12}>
-          <Item>
+          <Item >
             <Typography fontWeight={600} variant="h4" gutterBottom>
               {t("Watch List")}
             </Typography>
-            <Grid container>
-              <Grid xs={6} item>
+            <Grid justifyContent={"center"}  container>
+              <Grid xs={12} sm={4} item>
                 <BasicCarousel num={0} items={items1} />
               </Grid>
-              <Grid xs={6} item>
+              <Grid xs={12} sm={4} item>
                 <BasicCarousel num={1} items={items2} />
               </Grid>
             </Grid>

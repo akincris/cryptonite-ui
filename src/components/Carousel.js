@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button, useTheme } from "@mui/material";
+import { Paper, Button, useTheme, useMediaQuery } from "@mui/material";
 import { useAppTranslation } from "../app/hooks";
 
 const BasicCarousel = (props) => {
@@ -9,7 +9,7 @@ const BasicCarousel = (props) => {
 
   return (
     <Carousel
-      sx={{ margin: "5px" }}
+      sx={{ margin: "5px"}}
       autoPlay={true}
       indicators={false}
       interval={3000}
@@ -33,12 +33,14 @@ const BasicCarousel = (props) => {
 
 function Item(props) {
   const { t } = useAppTranslation();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Paper
       sx={{
         maxWidth: "600px",
-        height: "300px",
+        height: matches ? "200px" : "300px",
         backgroundColor: props.color,
         border: "3px solid white",
       }}
