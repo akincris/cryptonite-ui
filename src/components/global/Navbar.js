@@ -7,14 +7,10 @@ import {
   useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import {
-  DarkModeOutlined,
-  LightModeOutlined,
-  Settings,
-} from "@mui/icons-material";
+import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
 import LanguageButton from "./selectLanguage";
 
-const Navbar = ({ toggleSidebar, sidebarMode, toggleTheme }) => {
+const Navbar = ({ toggleSidebar, sidebarMode, toggleTheme, tools }) => {
   const theme = useTheme();
   return (
     <AppBar enableColorOnDark={true} position="sticky">
@@ -51,10 +47,8 @@ const Navbar = ({ toggleSidebar, sidebarMode, toggleTheme }) => {
               <LightModeOutlined color="secondary" />
             )}
           </IconButton>
-          <IconButton>
-            <Settings color="secondary" />
-          </IconButton>
           <LanguageButton />
+          {tools && tools()}
         </ButtonGroup>
       </Toolbar>
     </AppBar>
