@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { Outlet } from "react-router";
 import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
 import { ButtonGroup, IconButton, useTheme } from "@mui/material";
@@ -6,15 +6,46 @@ import LanguageButton from "../components/global/selectLanguage";
 
 const Auth = (props) => {
   const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
   return (
-    <Box sx={{position: "relative"}}>
+    <Box sx={{ position: "relative" }}>
+      {matches && (
+        <Box
+          sx={{
+            position: "absolute",
+            display: "flex",
+            width: "100%",
+            zIndex: 10,
+          }}
+        >
+          <ButtonGroup sx={{ padding: "20px" }}>
+            <IconButton>
+              <Typography
+                sx={{ padding: "4px", color: theme.palette.primary.main }}
+                variant="button"
+              >
+                About Us
+              </Typography>
+            </IconButton>
+            <IconButton>
+              <Typography
+                sx={{ padding: "4px", color: theme.palette.primary.main }}
+                variant="button"
+              >
+                Trending Topics
+              </Typography>
+            </IconButton>
+          </ButtonGroup>
+        </Box>
+      )}
       <Box
         sx={{
           position: "absolute",
           display: "flex",
           justifyContent: "right",
           width: "100%",
-          zIndex: 10
+          zIndex: 10,
         }}
       >
         <ButtonGroup sx={{ padding: "20px" }}>
@@ -33,7 +64,9 @@ const Auth = (props) => {
           </IconButton>
           <LanguageButton />
           <IconButton>
-            <Typography sx={{padding: "5px"}} variant="button">Login</Typography>
+            <Typography sx={{ padding: "5px" }} variant="button">
+              Login
+            </Typography>
           </IconButton>
         </ButtonGroup>
       </Box>

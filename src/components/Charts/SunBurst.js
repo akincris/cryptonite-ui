@@ -42,7 +42,7 @@ const AnimatedSunburst = () => {
     }, 4500);
   }, [data]);
 
-  const matches = useMediaQuery(theme.breakpoints.down('sm'));
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <div className="animated-sunburst-example-wrapper">
@@ -51,12 +51,14 @@ const AnimatedSunburst = () => {
         data={data}
         colorType={"category"}
         colorRange={colors}
-        style={{ stroke: "#fff", }}
-        sx={{[theme.breakpoints.down('md')]: {
-          display: 'none',
-        },}}
-        height={matches ? 200: 310}
-        width={matches ? 220: 330}
+        style={{ stroke: "#fff" }}
+        sx={{
+          [theme.breakpoints.down("md")]: {
+            display: "none",
+          },
+        }}
+        height={matches ? 200 : 310}
+        width={matches ? 220 : 330}
       />
     </div>
   );
