@@ -14,14 +14,14 @@ const LandingPage = () => {
   const matchesLG = useMediaQuery(theme.breakpoints.down("xl"));
   const matchesXL = useMediaQuery(theme.breakpoints.up("xl"));
 
-  const colors = ["black", theme.palette.primary.lighter];
+  const colors = ["black", theme.palette.primary.light];
 
   const sizes = {
     xs: { height: 120, width: 320 },
     s: { height: 125, width: 410 },
     sm: { height: 260, width: 370 },
     md: { height: 330, width: 450 },
-    lg: { height: 450, width: 700 },
+    lg: { height: 330, width: 700 },
     xl: { height: 860, width: 1200 },
   };
 
@@ -57,16 +57,30 @@ const LandingPage = () => {
             height: matches ? "50vh" : "100vh",
           }}
         >
-          {/* <Typography
+          <Typography
             sx={{
-              fontSize: "70px",
+              fontSize: "80px",
               fontWeight: 600,
-              color: colors[1],
-              // position: "absolute",
+              color: matchesS ? "black" : "#ededed",
+              position: "absolute",
+              top: "30%",
+              left: "5%",
             }}
           >
-            Crypto <br /> Nite
-          </Typography> */}
+            Crypto <br />
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "80px",
+              fontWeight: 600,
+              color: "#ededed",
+              position: "absolute",
+              top: "45%",
+              left: "5%",
+            }}
+          >
+            Nite
+          </Typography>
           <FloatingPoints
             height={returnSize().height}
             width={returnSize().width}
@@ -99,7 +113,7 @@ const LandingPage = () => {
           />
         </Grid>
       </Grid>
-      <CComponent />
+     { !matchesS && <CComponent />}
       {/* <LoginForm /> */}
     </>
   );

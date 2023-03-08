@@ -22,8 +22,8 @@ const BasicCarousel = (props) => {
           textColor={theme.palette.primary.main}
           color={
             i % 2 === num
-              ? theme.palette.primary.ligher
-              : theme.palette.secondary.lighter
+              ? theme.palette.primary.light
+              : theme.palette.secondary.light
           }
         />
       ))}

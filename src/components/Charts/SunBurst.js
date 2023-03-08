@@ -32,9 +32,9 @@ const AnimatedSunburst = () => {
   const { t } = useAppTranslation();
   const colors = [
     theme.palette.primary.main,
-    theme.palette.primary.lighter,
+    theme.palette.primary.light,
     theme.palette.secondary.main,
-    theme.palette.secondary.lighter,
+    theme.palette.secondary.light,
   ];
   useEffect(() => {
     setTimeout(() => {

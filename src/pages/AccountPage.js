@@ -13,10 +13,10 @@ const AccountPage = () => {
     <>
       <MainFeaturedPost
         accountData={account}
-        avatarColor={theme.palette.primary.lighter}
+        avatarColor={theme.palette.primary.light}
         color={
           theme.palette.mode === "light"
-            ? theme.palette.secondary.lighter
+            ? theme.palette.secondary.light
             : "#399228"
         }
       />

@@ -19,7 +19,7 @@ const LoginForm = () => {
       }}
     >
       <Box sx={{ margin: "auto" }}>
-        <Card sx={{ width: matches ? 290 : 370, zIndex: 11, backgroundColor : theme.palette.secondary.lighter, opacity: 0.9 }}>
+        <Card sx={{ width: matches ? 290 : 370, zIndex: 11, backgroundColor : theme.palette.secondary.light, opacity: 0.9 }}>
           <CardContent
             sx={{ display: "flex", flexDirection: "column", gap: "35px", margin : "12px" }}
           >
