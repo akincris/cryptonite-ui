@@ -3,11 +3,12 @@ import { Outlet } from "react-router";
 import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
 import { ButtonGroup, IconButton, useTheme } from "@mui/material";
 import LanguageButton from "../components/global/selectLanguage";
+import { useAppTranslation } from "../app/hooks";
 
 const Auth = (props) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
-
+  const {t} = useAppTranslation();
   return (
     <Box sx={{ position: "relative" }}>
       {matches && (
@@ -25,7 +26,7 @@ const Auth = (props) => {
                 sx={{ padding: "4px", color: theme.palette.primary.main }}
                 variant="button"
               >
-                About Us
+                {t("About Us")}
               </Typography>
             </IconButton>
             <IconButton>
@@ -33,7 +34,7 @@ const Auth = (props) => {
                 sx={{ padding: "4px", color: theme.palette.primary.main }}
                 variant="button"
               >
-                Trending Topics
+                {t("Trending Topics")}
               </Typography>
             </IconButton>
           </ButtonGroup>

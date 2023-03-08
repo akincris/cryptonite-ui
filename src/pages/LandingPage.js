@@ -1,4 +1,5 @@
 import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { useAppTranslation } from "../app/hooks";
 import FloatingPoints from "../components/Auth/FloatingPoints";
 import LoginForm from "../components/Auth/LoginForm";
 import CComponent from "../components/CComponent";
@@ -6,6 +7,7 @@ import CComponent from "../components/CComponent";
 const LandingPage = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
+  const { t } = useAppTranslation();
 
   const matchesXS = useMediaQuery(theme.breakpoints.down("s"));
   const matchesS = useMediaQuery(theme.breakpoints.down("sm"));
@@ -67,7 +69,7 @@ const LandingPage = () => {
               left: "5%",
             }}
           >
-            Crypto <br />
+            {t("Crypto")} <br />
           </Typography>
           <Typography
             sx={{
@@ -79,7 +81,7 @@ const LandingPage = () => {
               left: "5%",
             }}
           >
-            Nite
+            {t("Nite")}
           </Typography>
           <FloatingPoints
             height={returnSize().height}
@@ -113,7 +115,7 @@ const LandingPage = () => {
           />
         </Grid>
       </Grid>
-     { !matchesS && <CComponent />}
+      {!matchesS && <CComponent />}
       {/* <LoginForm /> */}
     </>
   );
