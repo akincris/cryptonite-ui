@@ -74,7 +74,7 @@ const Sidebar = (props) => {
         "& .MuiDrawer-paper": {
           boxSizing: "border-box",
           width: 300,
-          backgroundColor: theme.palette.primary.lighter,
+          backgroundColor: theme.palette.primary.light,
         },
       }}
     >

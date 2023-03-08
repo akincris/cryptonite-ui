@@ -10,7 +10,7 @@ const WatchListPage = () => {
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
   const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.lighter,
+    backgroundColor: theme.palette.primary.light,
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: "center",
@@ -116,7 +116,7 @@ const WatchListPage = () => {
       <Grid justifyContent={"center"}  container spacing={2} sx={{ padding: "14px" }}>
         <Grid item xs={12}>
           <Item >
-            <Typography fontWeight={600} variant="h4" gutterBottom>
+            <Typography fontWeight={700} color={theme.palette.secondary.light} variant="h4" gutterBottom>
               {t("Watch List")}
             </Typography>
             <Grid justifyContent={"center"}  container>

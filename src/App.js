@@ -16,7 +16,16 @@ function App() {
     setMode(theme);
   };
 
-  const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+  const theme = useMemo(() => createTheme({breakpoints: {
+    values: {
+      xs: 0,
+      s: 400,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },},getDesignTokens(mode)), [mode]);
 
   return (
     <>

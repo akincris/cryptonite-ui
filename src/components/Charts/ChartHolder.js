@@ -11,7 +11,7 @@ const ChartHolder = () => {
   const { t } = useAppTranslation();
 
   const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.lighter,
+    backgroundColor: theme.palette.primary.light,
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: "center",
@@ -39,7 +39,7 @@ const ChartHolder = () => {
       <Grid item md={4} xs={12}>
         <Item>
           <ListedBars
-            color={theme.palette.mode === "light" ? "#c4e1c8" : "#121b21"}
+            color={theme.palette.secondary.light}
           />
         </Item>
       </Grid>

@@ -5,11 +5,11 @@ const getDesignTokens = (mode) => ({
       ? {
           primary: {
             main: "#d1d4d3",
-            lighter: "#ededed",
+            light: "#ededed",
           },
           secondary: {
             main: "#000000",
-            lighter: "#c4e1c8",
+            light: "#c4e1c8",
           },
           error: {
             main: "#d79995",
@@ -27,11 +27,11 @@ const getDesignTokens = (mode) => ({
       : {
           primary: {
             main: "#18232b",
-            lighter: "#121b21",
+            light: "#121b21",
           },
           secondary: {
             main: "#46a433",
-            lighter: "#136206",
+            light: "#136206",
           },
           error: {
             main: "#8a3d3b",

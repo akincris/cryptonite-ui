@@ -28,7 +28,7 @@ export default function ListedBars(props) {
               <ListItemIcon>
                 <StarIcon sx={{ color: theme.palette.secondary.main }} />
               </ListItemIcon>
-              <ListItemText secondary={t("Coin price from GraphQL")} />
+              <ListItemText  sx={{color:  "white"}} secondary={t("Coin price from GraphQL")} />
             </ListItemButton>
           </ListItem>
         );

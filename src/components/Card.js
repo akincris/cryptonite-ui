@@ -12,13 +12,13 @@ export default function BasicCard(props) {
   return (
     <Card sx={{ margin: "4px", backgroundColor: props.color }}>
       <CardContent>
-        <Typography sx={{ fontSize: 16, fontWeight: "600" }} color="text.secondary" gutterBottom>
+        <Typography sx={{ fontSize: 16, fontWeight: "600" }} color="white" gutterBottom>
           {t("Reviews from our best customers")}
         </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        <Typography sx={{ mb: 1.5 }} color="white">
           {t("Crypto-Nite is rated as one of the best apps in the industry!")}
         </Typography>
-        <Typography variant="body2">
+        <Typography color="white" variant="body2">
           '{t("The app really knows what you need")}'
         </Typography>
       </CardContent>
