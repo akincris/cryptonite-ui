@@ -6,6 +6,7 @@ import DashboardPage from "../pages/DashboardPage";
 import ErrorPage from "../pages/ErrorPage";
 import LandingPage from "../pages/LandingPage";
 import WatchListPage from "../pages/WatchlistPage";
+import WorldTopPage from "../pages/WorldTopPage";
 
 export function AppRoutes(props) {
   const routes = useRoutes([
@@ -38,6 +39,10 @@ export function AppRoutes(props) {
         {
           path: "account",
           element: <AccountPage />,
+        },
+        {
+          path: "worldTop",
+          element: <WorldTopPage />,
         },
         {
           path: "",

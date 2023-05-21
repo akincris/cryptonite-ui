@@ -29,7 +29,7 @@ function App() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme} >
         <Provider store={store}>
           <AppRoutes changeTheme={changeTheme} />
         </Provider>

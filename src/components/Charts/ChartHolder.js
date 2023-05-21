@@ -27,20 +27,21 @@ const ChartHolder = () => {
           <Box>
             <Grid container>
               <Grid item xs={12}>
-                <Typography>Date: February 23, 2023</Typography>
-                <Typography>Time: 4.03 AM</Typography>
+                <Typography style={{ fontWeight: 800 }}>
+                  Date: {new Date().toDateString()}
+                </Typography>
+                <Typography style={{ fontWeight: 700 }}>
+                  Time: {new Date().getHours() + ":" + new Date().getMinutes()}{" "}
+                </Typography>
               </Grid>
-              <Grid item xs={12}>
-              </Grid>
+              <Grid item xs={12}></Grid>
             </Grid>
           </Box>
         </Item>
       </Grid>
       <Grid item md={4} xs={12}>
         <Item>
-          <ListedBars
-            color={theme.palette.secondary.light}
-          />
+          <ListedBars color={theme.palette.secondary.light} />
         </Item>
       </Grid>
       <Grid item md={4} xs={12}>

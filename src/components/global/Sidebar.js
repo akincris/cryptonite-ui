@@ -25,7 +25,7 @@ const Sidebar = (props) => {
   const firstPartItems = [
     { text: "Dashboard", path: "/", icon: <DashboardIcon /> },
     { text: "News", path: "/account", icon: <NewspaperIcon /> },
-    { text: "World top", path: "/account", icon: <PublicIcon /> },
+    { text: "World top", path: "/worldTop", icon: <PublicIcon /> },
   ];
 
   const secondPartItems = [

@@ -8,7 +8,7 @@ import { useAppTranslation } from "../app/hooks";
 const Auth = (props) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
-  const {t} = useAppTranslation();
+  const { t } = useAppTranslation();
   return (
     <Box sx={{ position: "relative" }}>
       {matches && (
@@ -64,11 +64,6 @@ const Auth = (props) => {
             )}
           </IconButton>
           <LanguageButton />
-          <IconButton>
-            <Typography sx={{ padding: "5px" }} variant="button">
-              Login
-            </Typography>
-          </IconButton>
         </ButtonGroup>
       </Box>
       <Outlet />

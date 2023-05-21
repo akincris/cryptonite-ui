@@ -1,13 +1,15 @@
 import { LogoutOutlined } from "@mui/icons-material";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, useTheme } from "@mui/material";
 import { useState } from "react";
 import { Outlet, useNavigate } from "react-router";
 import Navbar from "../../components/global/Navbar.js";
 import Sidebar from "../../components/global/Sidebar.js";
+import { getLSValue } from "../../app/localStorage.js";
 
 const Base = (props) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const tools = () => {
     return (
@@ -17,7 +19,7 @@ const Base = (props) => {
     );
   };
   return (
-    <Box>
+    <Box style={{backgroundColor: getLSValue("theme") === "light"? "white" : theme.palette.primary.light}}>
       <Navbar
         sidebarExist={true}
         toggleTheme={props.toggleTheme}
