@@ -3,11 +3,12 @@ import { Grid, Paper, styled, Typography, useMediaQuery } from "@mui/material";
 import { useAppTranslation } from "../app/hooks";
 import BasicCarousel from "../components/Carousel";
 import CustomizedTable from "../components/CustomTable";
+import { useQuery } from "@apollo/client";
+import { GET_COIN_DETAILS, GET_COIN_HISTORY, GET_COINS } from "../api/queries";
 
 const WatchListPage = () => {
-  
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down('sm'));
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.primary.light,
@@ -17,6 +18,18 @@ const WatchListPage = () => {
     color: theme.palette.text.secondary,
   }));
   const { t } = useAppTranslation();
+  // const { loading, error, data } = useQuery(GET_COIN_DETAILS, {
+  //   variables: {
+  //     ids: ["bitcoin", "historydao"],
+  //   },
+  // });
+
+  const { loading, error, data } = useQuery(GET_COIN_HISTORY, {
+    variables: {
+      coinHistoryId: "bitcoin",
+    },
+  });
+  console.log(data);
 
   var items1 = [
     {
@@ -113,13 +126,23 @@ const WatchListPage = () => {
   ];
   return (
     <>
-      <Grid justifyContent={"center"}  container spacing={2} sx={{ padding: "14px" }}>
+      <Grid
+        justifyContent={"center"}
+        container
+        spacing={2}
+        sx={{ padding: "14px" }}
+      >
         <Grid item xs={12}>
-          <Item >
-            <Typography fontWeight={700} color={theme.palette.secondary.light} variant="h4" gutterBottom>
+          <Item>
+            <Typography
+              fontWeight={700}
+              color={theme.palette.secondary.light}
+              variant="h4"
+              gutterBottom
+            >
               {t("Watch List")}
             </Typography>
-            <Grid justifyContent={"center"}  container>
+            <Grid justifyContent={"center"} container>
               <Grid xs={12} sm={4} item>
                 <BasicCarousel num={0} items={items1} />
               </Grid>

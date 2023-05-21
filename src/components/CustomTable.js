@@ -133,7 +133,7 @@ export default function CustomizedTable(props) {
           <TableRow>
             {columns.map((column, index) => {
               return (
-                <StyledTableCell>{t(column.name)}</StyledTableCell>
+                <StyledTableCell key={index}>{t(column.name)}</StyledTableCell>
               );
             })}
           </TableRow>
@@ -168,10 +168,6 @@ export default function CustomizedTable(props) {
               count={data.length}
               rowsPerPage={rowsPerPage}
               page={page}
-              SelectProps={{
-                inputProps: false
-                
-              }}
               onPageChange={handleChangePage}
               onRowsPerPageChange={handleChangeRowsPerPage}
               ActionsComponent={TablePaginationActions}
