@@ -93,7 +93,7 @@ export default function CustomizedTable(props) {
   const { columns, data } = props;
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const {t} = useAppTranslation();
+  const { t } = useAppTranslation();
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
@@ -144,13 +144,23 @@ export default function CustomizedTable(props) {
             : data
           ).map((row, index) => (
             <StyledTableRow key={index}>
-              {columns.map((column, index) => {
-                return (
-                  <StyledTableCell key={index}>
-                    {row[column.key]}
-                  </StyledTableCell>
-                );
-              })}
+              <StyledTableCell
+                style={{ fontFamily: "monospace", fontWeight: 800 }}
+              >
+                {row?.name.toUpperCase()}
+              </StyledTableCell>
+              <StyledTableCell>
+                {"$" + row?.usd.toLocaleString("en-US")}
+              </StyledTableCell>
+              <StyledTableCell style={{ color: "#00D100", fontWeight: 700 }}>
+                {"%" + (row.usd_24h_change ? row.usd_24h_change.toFixed(2) : 0)}
+              </StyledTableCell>
+              <StyledTableCell>
+                {"$" + row?.usd_24h_vol.toLocaleString("en-US")}
+              </StyledTableCell>
+              <StyledTableCell>
+                {"$" + row?.usd_market_cap.toLocaleString("en-US")}
+              </StyledTableCell>
             </StyledTableRow>
           ))}
 

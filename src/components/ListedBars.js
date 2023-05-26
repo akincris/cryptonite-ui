@@ -42,7 +42,7 @@ export default function ListedBars(props) {
                     style={{
                       fontWeight: 800,
                       fontFamily: "monospace",
-                      fontSize: "16px",
+                      fontSize: "16px"
                     }}
                   >
                     {item.name.toUpperCase()}

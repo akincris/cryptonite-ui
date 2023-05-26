@@ -18,18 +18,58 @@ const WatchListPage = () => {
     color: theme.palette.text.secondary,
   }));
   const { t } = useAppTranslation();
-  // const { loading, error, data } = useQuery(GET_COIN_DETAILS, {
-  //   variables: {
-  //     ids: ["bitcoin", "historydao"],
-  //   },
-  // });
-
-  const { loading, error, data } = useQuery(GET_COIN_HISTORY, {
+  const { loading, error, data } = useQuery(GET_COIN_DETAILS, {
     variables: {
-      coinHistoryId: "bitcoin",
+      ids: [
+        "bitcoin",
+        "ethereum",
+        "ethereum-cash",
+        "ethereum-classic",
+        "ethereumfair",
+        "eloin",
+        "elo-inu",
+        "elondoge-dao",
+        "elon-doge-token",
+        "elongate-duluxe",
+        "elon-goat",
+        "elon-musk-ceo",
+        "elons-marvin",
+        "drive-crypto",
+        "drivenx",
+        "droparb",
+        "drops-ownership-power",
+        "drunk-robots",
+        "drunk-skunks-drinking-club",
+        "dsc-mix",
+        "dshares",
+        "d-shop",
+        "dsquared-finance",
+        "dsun-token",
+        "cosmic-fomo",
+        "cosmicswap",
+        "cosmic-universe-magic-token",
+        "cosmos",
+        "cosplay-token-2",
+        "coti",
+        "cotrader",
+        "cougar-token",
+        "counosx",
+        "counterparty",
+        "couponbay",
+        "covalent",
+        "covalent-cova",
+        "covenant-child",
+        "covercompared",
+        "cover-protocol",
+      ],
     },
   });
-  console.log(data);
+
+  // const { loading, error, data } = useQuery(GET_COIN_HISTORY, {
+  //   variables: {
+  //     coinHistoryId: "bitcoin",
+  //   },
+  // });
 
   var items1 = [
     {
@@ -54,76 +94,12 @@ const WatchListPage = () => {
   ];
   const columns = [
     { name: "Name", key: "name" },
-    { name: "Price", key: "price" },
-    { name: "Chart", key: "chart" },
-    { name: "Change", key: "change" },
-    { name: "Market Cap", key: "marketCap" },
+    { name: "USD", key: "usd" },
+    { name: "Change", key: "usd_24h_change" },
+    { name: "Volume", key: "usd_24h_vol" },
+    { name: "Market Cap", key: "usd_24h_vol" },
   ];
-  const rows = [
-    {
-      name: "Bitcoin",
-      price: 23829,
-      chart: "something",
-      change: "36.88%",
-      marketCap: 460,
-    },
-    {
-      name: "Ethereum",
-      price: 1.62,
-      chart: "something",
-      change: "37.80%",
-      marketCap: 80,
-    },
-    {
-      name: "Tether",
-      price: 23.829,
-      chart: "something",
-      change: "18.23%",
-      marketCap: 380,
-    },
-    {
-      name: "XRP",
-      price: 9.023,
-      chart: "something",
-      change: "6.49%",
-      marketCap: 434,
-    },
-    {
-      name: "USD Coin",
-      price: 22.894,
-      chart: "something",
-      change: "19.88%",
-      marketCap: 260,
-    },
-    {
-      name: "Ethereum",
-      price: 1.62,
-      chart: "something",
-      change: "37.80%",
-      marketCap: 80,
-    },
-    {
-      name: "Tether",
-      price: 23.829,
-      chart: "something",
-      change: "18.23%",
-      marketCap: 380,
-    },
-    {
-      name: "XRP",
-      price: 9.023,
-      chart: "something",
-      change: "6.49%",
-      marketCap: 434,
-    },
-    {
-      name: "USD Coin",
-      price: 22.894,
-      chart: "something",
-      change: "19.88%",
-      marketCap: 260,
-    },
-  ];
+
   return (
     <>
       <Grid
@@ -154,7 +130,7 @@ const WatchListPage = () => {
         </Grid>
         <Grid item xs={12}>
           <Item>
-            <CustomizedTable data={rows} columns={columns} />
+            <CustomizedTable data={data?.coinDetails || []} columns={columns} />
           </Item>
         </Grid>
       </Grid>

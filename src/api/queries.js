@@ -31,7 +31,7 @@ export const GET_COIN_HISTORY = gql`
       name
       image {
         thumb
-        small
+        small   
       }
     }
   }
